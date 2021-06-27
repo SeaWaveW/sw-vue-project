@@ -1,5 +1,9 @@
 const path = require('path')
 module.exports = {
+    productionSourceMap:false,
+    publicPath: '/',
+    outputDir: 'dist',
+    assetsDir: 'static',
     // 修改 入口
     pages:{
         index:{
@@ -27,4 +31,16 @@ module.exports = {
             .set('@config',path.resolve('src/config'))
             .set('@views',path.resolve('src/views'))
     },
+    // 代理配置
+    devServer: {
+        port: 997, //开发端口
+        proxy: {
+            '/api' : {
+                target: 'http://localhost:8080/',
+                pathRewrite: {
+                    '^/api':''
+                }
+            }
+        },
+    }
 }

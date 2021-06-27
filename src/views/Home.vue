@@ -7,7 +7,7 @@
 </template>
     
 <script>
-import stroage from '@utils/stroage'    
+import {request} from '@config/axios.js'    
 export default {
     name:"",
     components:{
@@ -20,7 +20,7 @@ export default {
         
     },
     created(){
-        
+        // console.error(request)
     }
 }
     
