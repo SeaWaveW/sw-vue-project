@@ -1,27 +1,26 @@
 <template>
 <div class="">
     
-    这是首页0
-    
+    这是用户页{{msg}}
+    <button @click="$router.push({name:'userItem'},true)">前往用户子类</button>
+    <button @click="msg++">+++++</button>
+
 </div>
 </template>
     
 <script>
-import stroage from '@utils/stroage'    
+    
 export default {
     name:"",
     components:{
         
     },
     data(){return{
-        
+        msg:0
     }},
     methods:{
         
     },
-    created(){
-        
-    }
 }
     
 </script>

@@ -1,13 +1,13 @@
 <template>
 <div class="">
     
-    这是首页0
+    这是企业 页
     
 </div>
 </template>
     
 <script>
-import stroage from '@utils/stroage'    
+    
 export default {
     name:"",
     components:{
@@ -19,9 +19,6 @@ export default {
     methods:{
         
     },
-    created(){
-        
-    }
 }
     
 </script>

@@ -1,13 +1,14 @@
 <template>
 <div class="">
     
-    这是首页0
+    这是用户子类页
+    <button @click="back">返回</button>
     
 </div>
 </template>
     
 <script>
-import stroage from '@utils/stroage'    
+    
 export default {
     name:"",
     components:{
@@ -17,11 +18,10 @@ export default {
         
     }},
     methods:{
-        
+        back(){
+            this.$router.push('user',1)
+        }
     },
-    created(){
-        
-    }
 }
     
 </script>
