@@ -1,0 +1,67 @@
+//前缀 .test{ @include prefix(background,blur) }
+@mixin prefix( $styleName, $styleValue, $optionsList: webkit moz o ms ) {
+    @each $option in $optionsList {
+        -#{$option}-#{$styleName} : #{$styleValue} ;
+    }
+    #{$styleName} : $styleValue ;
+}
+//后缀 .test{ @include suffix(background,blur) }
+@mixin suffix ( $styleName, $styleValue, $optionsList: webkit moz o ms ) {
+    @each $option in $optionsList {
+        #{$styleName} : -#{$option}-#{$styleValue} ;
+    }
+    #{$styleName} : $styleValue ;
+}
+//浮动 .test{ @include float(left) }
+@mixin float( $styleValue : left ) {
+    float : #{$styleValue} ;
+}
+//清除浮动 .test{ @include clearFloat() }
+@mixin clearFloat () {
+    zoom : 1 ;
+    &:after {
+        content : '' ;
+        display : block ;
+        clear : both ;
+    }
+}
+//定位 .test{ @include position(r) }
+@mixin top ( $styleValue , $styleValueSide : px) {
+    top : #{ $styleValue }#{ $styleValueSide }
+}
+@mixin right ( $styleValue ) {
+    right : #{ $styleValue }#{ $styleValueSide }
+}
+@mixin bottom ( $styleValue ) {
+    bottom : #{ $styleValue }#{ $styleValueSide }
+}
+@mixin left ( $styleValue ) {
+    left : #{ $styleValue }#{ $styleValueSide }
+}
+@mixin position ( $styleValue , $styleValueList : '') {
+    @if $styleValue == r {
+        position: relative;
+    }
+    @else if $styleValue == a {
+        position: absolute;
+    }
+    @else if $styleValue == f {
+        position: fixed;
+    }
+    @else if $styleValue == sc {
+        position: static;
+    }
+    @else if $styleValue == sy {
+        position: sticky;
+    }
+    
+    @if length( $styleValueList ) == 1 {
+        @each $sv in $styleValueList {
+            @include top($sv);
+            @include right($sv);
+            @include bottom($sv);
+            @include left($sv);
+        }
+    }
+}
+

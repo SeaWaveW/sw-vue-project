@@ -2,7 +2,7 @@
 <div class="sw-messageBox" v-show="show">
     <div v-if="shade" class="sw-messageBox__model" :style="{backgroundColor:shadeBg,zIndex}" @click="closeOnClickModal ? close() : ''"/>
     <div class="sw-messageBox__centent" :class="[ 'sw-mb_c-' + type ]" :style="{zIndex:zIndex+1}">
-        <div class="sw-messageBox__header">
+        <div class="sw-messageBox__header flex">
             <span v-if="!$scopedSlots.header">
                 {{title}}
             </span>
@@ -11,14 +11,14 @@
             </span>
             <i class="iconfont icon-close sw-messageBox__close" @click="close" v-if="showClose"/>
         </div>
-        <div class="sw-messageBox__body">
-            <div class="iconfont" :class="[ type === 'default' ? 'icon-wenhao' : 'icon-' + type ]"/>
+        <div class="sw-messageBox__body flex">
+            <i class="iconfont" :class="[ type === 'default' ? 'icon-wenhao' : 'icon-' + type ]"/>
             <div v-if="dangerouslyUseHTMLString" v-html="message" class="message"/>
             <div v-else class="message">
                 {{message}}
             </div>
         </div>
-        <div class="sw-messageBox__footer">
+        <div class="sw-messageBox__footer flex">
             <button v-if="showCancelButton" :class="cancelButtonClass" @click="close">{{cancelButtonText}}</button>
             <button v-if="showConfirmButton" :class="confirmButtonClass" @click="confirm">{{confirmButtonText}}</button>
         </div>
@@ -131,6 +131,7 @@ export default {
             .message{
                 text-align: left;
                 width: calc(100% - 60px);
+                display: inline-block;
                 padding-left: 1em;
                 font-size: 14px;
             }

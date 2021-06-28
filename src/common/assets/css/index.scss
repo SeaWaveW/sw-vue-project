@@ -1,2 +1,13 @@
 @import './variable.scss';
+@import './mixin.scss';
 @import './font-icon.scss';
+@import './base.scss';
+
+.flex{
+    @include prefix(display,flex);
+    @include suffix(display,flex);
+    @include prefix(justify-content,center);
+    @include suffix(justify-content,center);
+    @include prefix(align-items,center);
+    @include suffix(align-items,center);
+}
