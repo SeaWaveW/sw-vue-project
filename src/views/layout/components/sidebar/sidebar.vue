@@ -71,7 +71,7 @@ export default {
     },
 }
 </script>
-<style lang="scss">
+<style scoped lang="scss">
  .el-menu .el-submenu .el-submenu__title .el-submenu__icon-arrow {
         visibility: hidden
     }

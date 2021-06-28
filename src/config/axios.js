@@ -9,13 +9,27 @@ const service = axios.create({
 })
 //错误提示
 const errorHandling = ( errorResponse ) => {
-    let message = ''
-    if(typeof(errorResponse) === 'string'){
-        message = errorResponse.includes('timeout') ? '请求超时，请检查网络是否正常连接' : '请求失败，请检查网络是否已连接'
-    }else{
-        message = httpMap( errorResponse.code + '' )
+    let item = {
+      title:'',
+      message:''
     }
-    confirm({title:'请求错误',showCancelButton:false,type:'error',message})
+    if(typeof(errorResponse) === 'string'){
+        if(errorResponse.includes('timeout')){
+          item.title = '请求超时'
+          item.message = '请检查网络是否正常连接'
+        }else{
+          item.title = '请求失败'
+          item.message = '请检查网络是否已连接'
+        }
+    }else{
+        item = httpMap( errorResponse.code + '' )
+    }
+    confirm({
+      title:item.title,
+      showCancelButton:false,
+      type:'error',
+      message:item.message
+    })
 }
 //请求拦截
 service.interceptors.request.use( config => {

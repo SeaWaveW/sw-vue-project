@@ -94,8 +94,8 @@ export default {
         left: 50%;
         top: 50%;
         transform: translate(-50%,-50%);
-        min-width: 300px;
-        max-width: 300px;
+        min-width: 400px;
+        max-width: 400px;
         background: white;
         border-radius: 6px;
         overflow: hidden;
@@ -112,6 +112,7 @@ export default {
             font-size: 16px;
             font-weight: bold;
             letter-spacing: 0.5px;
+            padding: 8px 25px;
             .sw-messageBox__close{
                 position: absolute;
                 font-size: 16px;
@@ -122,8 +123,8 @@ export default {
             }
         }
         .sw-messageBox__body{
-            min-height: 96px;
-            padding: 6px 25px;
+            padding: 15px 25px;
+            min-height: 100px;
             .iconfont{
                 margin-left: 10px;
                 font-size: 50px;
@@ -137,8 +138,7 @@ export default {
             }
         }
         .sw-messageBox__footer{
-            height: 40px;
-            padding: 4px 4px 12px;
+            padding: 10px 25px;
             button{
                 margin: 0 0.8em;
                 min-width: 60px;

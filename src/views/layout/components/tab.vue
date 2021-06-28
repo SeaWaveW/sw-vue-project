@@ -69,7 +69,7 @@ export default {
 }
     
 </script>
-<style lang="scss">
+<style scoped lang="scss">
 .sw-tab{
     .el-tag{
         background-color: white;

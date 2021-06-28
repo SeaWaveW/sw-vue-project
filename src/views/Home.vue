@@ -22,12 +22,17 @@ export default {
     },
     mounted(){
         let code = 307
-        let message = httpMap( code + '' )
-        confirm({title:'请求错误',showCancelButton:false,type:'error',message})
+        let item = httpMap( code + '' )
+        confirm({
+            title:item.title,
+            showCancelButton:false,
+            type:'error',
+            message:item.message
+        })
     }
 }
     
 </script>
-<style lang="less">
+<style scoped lang="scss">
     
 </style>
