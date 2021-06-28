@@ -8,7 +8,7 @@ const routes = [
         {
           path:'/home',
           name:'home',
-          component:() => import('@views/home.vue')
+          component:() => import('@views/Home.vue')
         },
         {
           path:'/user',

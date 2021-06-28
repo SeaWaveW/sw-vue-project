@@ -1,13 +1,14 @@
 <template>
-<div class="">
+<div class="" style="z-index:800">
     
     这是首页0
-    
+
 </div>
 </template>
     
 <script>
-import {request} from '@config/axios.js'    
+import { httpMap } from '@utils/httpStateCode.js'
+import confirm from '@components/confirm'
 export default {
     name:"",
     components:{
@@ -19,8 +20,10 @@ export default {
     methods:{
         
     },
-    created(){
-        // console.error(request)
+    mounted(){
+        let code = 307
+        let message = httpMap( code + '' )
+        confirm({title:'请求错误',showCancelButton:false,type:'error',message})
     }
 }
     

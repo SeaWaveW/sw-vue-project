@@ -2,7 +2,7 @@
 <div class="">
     
     这是用户页{{msg}}
-    <button @click="$router.push({name:'userItem'},true)">前往用户子类</button>
+    <button @click="$router.push({name:'userItem'})">前往用户子类</button>
     <button @click="msg++">+++++</button>
 
 </div>

@@ -29,11 +29,12 @@ const router = new VueRouter({
 
 router.beforeEach( (to,from,next) => {
   //不太理想，会直接重置页面状态（类似第一次进入该页面）：应该配合 Activated 函数使用最佳
-  if(session.get('iteration') === to.name && to.meta.keepAlive){
-    to.meta.keepAlive = false
+  if(typeof(to.meta.keepAlive) === 'boolean'){
+    to.meta.keepAlive = !( to.meta.keepAlive && (session.get('iteration') === to.name) )
     session.remove('iteration')
   }
   next()
+  
 })
 
 export default router

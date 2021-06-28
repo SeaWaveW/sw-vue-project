@@ -2,7 +2,8 @@
 <div class="">
     
     这是用户子类页
-    <button @click="back">返回</button>
+    <button @click="back">返回不刷新</button>
+    <button @click="backO">返回刷新</button>
     
 </div>
 </template>
@@ -19,7 +20,10 @@ export default {
     }},
     methods:{
         back(){
-            this.$router.push('user',1)
+            this.$router.push('user')
+        },
+        backO(){
+            this.$router.push('user',true)
         }
     },
 }
