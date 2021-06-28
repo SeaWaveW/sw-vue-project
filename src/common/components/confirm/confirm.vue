@@ -74,12 +74,8 @@ export default {
 }
 </script>
 
-<style scoped lang="less">
-@default:#5494F2;
-@success:#0FCE96;
-@error:#f58383;
-@warning:#e9c571;
-@info:#c5c8ce;
+<style scoped lang="scss">
+
 .sw-messageBox,.sw-messageBox__model,.sw-messageBox__centent,.sw-messageBox__header,.sw-messageBox__body,.sw-messageBox__footer{
     box-sizing: border-box;
     font-family: Microsoft Yahei;
@@ -150,51 +146,51 @@ export default {
         }
         &.sw-mb_c-default{
             .sw-messageBox__header{
-                background-color:@default;
+                background-color:$default;
             }
             .sw-messageBox__body{
                 .iconfont{
-                    color:@default;
+                    color:$default;
                 }
             }
         }
         &.sw-mb_c-success{
             .sw-messageBox__header{
-                background-color:@success;
+                background-color:$success;
             }
             .sw-messageBox__body{
                 .iconfont{
-                    color:@success;
+                    color:$success;
                 }
             }
         }
         &.sw-mb_c-error{
             .sw-messageBox__header{
-                background-color:@error;
+                background-color:$error;
             }
             .sw-messageBox__body{
                 .iconfont{
-                    color:@error;
+                    color:$error;
                 }
             }
         }
         &.sw-mb_c-warning{
             .sw-messageBox__header{
-                background-color:@warning;
+                background-color:$warning;
             }
             .sw-messageBox__body{
                 .iconfont{
-                    color:@warning;
+                    color:$warning;
                 }
             }
         }
         &.sw-mb_c-info{
             .sw-messageBox__header{
-                background-color:@info;
+                background-color:$info;
             }
             .sw-messageBox__body{
                 .iconfont{
-                    color:@info;
+                    color:$info;
                 }
             }
         }

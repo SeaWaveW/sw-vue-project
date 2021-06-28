@@ -14,4 +14,22 @@
     <div id="app"></div>
     <!-- built files will be auto injected -->
   </body>
+  <script type="text/javascript">
+    (function(window) {
+        var theUA = window.navigator.userAgent.toLowerCase();
+        if ((theUA.match(/msie\s\d+/) && theUA.match(/msie\s\d+/)[0]) || (theUA.match(/trident\s?\d+/) && theUA.match(/trident\s?\d+/)[0])) {
+          var ieVersion = theUA.match(/msie\s\d+/)[0].match(/\d+/)[0] || theUA.match(/trident\s?\d+/)[0];
+          if (ieVersion < 9) {
+            var title = "推荐使用：谷歌浏览器、火狐、其他双核极速模式";
+            document.writeln("<div class='browser'>" +
+                      "<h2>当前浏览器版本过低，请使用ie9以上的浏览器登录...</h2>" +
+                      "<div style='color: #999;'>" + title + "<br/></div>" +
+                      "<div style='color: #999;'>（如果您使用的是双核浏览器，请切换到极速模式访问）</div>" +
+                      "<div class='close-btn' onclick='handleClose()'>关闭</div>" +
+                    "</div>");
+            document.execCommand("Stop");
+          }
+        }
+      })(window);
+  </script>
 </html>

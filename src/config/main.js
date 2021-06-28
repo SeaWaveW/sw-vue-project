@@ -9,7 +9,7 @@ Vue.config.productionTip = false
 import { api } from './axios.js'
 Vue.prototype.$api = api
 //css
-import '@common/assets/css/index.less'
+import '@common/assets/css/index.scss'
 
 //第三方库
 import ElementUI from 'element-ui';

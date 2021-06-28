@@ -31,6 +31,14 @@ module.exports = {
             .set('@config',path.resolve('src/config'))
             .set('@views',path.resolve('src/views'))
     },
+    // 样式配置
+    css: {
+        loaderOptions: {
+            sass: {
+                prependData: `@import "@assets/css/index.scss" ;`
+            }
+        }
+    },
     // 代理配置
     devServer: {
         port: 997, //开发端口
