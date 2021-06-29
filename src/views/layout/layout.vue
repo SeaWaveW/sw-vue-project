@@ -52,21 +52,21 @@ html,body{
     width: 100%;
     box-sizing: border-box;
 }
-.el-aside {
+::v-deep .el-aside {
     background-color: #D3DCE6;
     color: #333;
     text-align: center;
     width: 200px;
     height: 100%;
 }
-.el-header{
+::v-deep .el-header{
     background-color: #B3C0D1;
     color: #333;
     text-align: center;
     height: 60px;
     line-height: 60px;
 }
-.el-main {
+::v-deep .el-main {
     background-color: #E9EEF3;
     color: #333;
     text-align: center;

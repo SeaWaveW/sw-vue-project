@@ -1,4 +1,10 @@
+// 路径
 const path = require('path')
+// 代码压缩
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
+// gzip压缩
+const CompressionWebpackPlugin = require('compression-webpack-plugin')
+
 module.exports = {
     productionSourceMap:false,
     publicPath: '/',
@@ -17,7 +23,6 @@ module.exports = {
         // 修改目录指向
         config.resolve.alias
             .set('@',path.resolve('src'))
-
             .set('@common',path.resolve('src/common'))
                 .set('@assets',path.resolve('src/common/assets'))
                     .set('@img',path.resolve('src/common/assets/img')) //图片
@@ -30,6 +35,46 @@ module.exports = {
                 .set('@utils',path.resolve('src/common/utils'))       //工具
             .set('@config',path.resolve('src/config'))
             .set('@views',path.resolve('src/views'))
+        //  图片压缩
+        config.module
+            .rule('images')
+            .use('image-webpack-loader')
+            .loader('image-webpack-loader')
+            .options({ bypassOnDebug: true })
+            .end()
+    },
+    // 拓展 webpack 配置
+    configureWebpack: config => {
+        //  代码压缩    
+        config.plugins.push(
+            new UglifyJsPlugin({
+                uglifyOptions: {
+                    warnings: false, // 若打包错误，则注释这行
+                    //生产环境自动删除console
+                    compress: {
+                        drop_debugger: true,
+                        drop_console: true,
+                        pure_funcs: ['console.log','console.error']
+                    }
+                },
+                sourceMap: false,
+                parallel: true
+            })
+        )
+        // gzip压缩
+        const productionGzipExtensions = ['html', 'js', 'css']
+        config.plugins.push(
+            new CompressionWebpackPlugin({
+                algorithm: 'gzip', // 使用gzip压缩
+                test: new RegExp(
+                    '\\.(' + productionGzipExtensions.join('|') + ')$'
+                ), // 匹配文件名
+                filename: '[path][base].gz', // 压缩后的文件名(保持原文件名，后缀加.gz)
+                minRatio: 1, // 压缩率小于1才会压缩
+                threshold: 10240, // 对超过10k的数据压缩
+                deleteOriginalAssets: false, // 是否删除未压缩的源文件，谨慎设置，如果希望提供非gzip的资源，可不设置或者设置为false（比如删除打包后的gz后还可以加载到原始资源文件）
+            })
+        )
     },
     // 样式配置
     css: {

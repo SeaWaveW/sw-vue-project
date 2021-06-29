@@ -20,8 +20,11 @@
     "@vue/cli-plugin-router": "~4.5.0",
     "@vue/cli-plugin-vuex": "~4.5.0",
     "@vue/cli-service": "~4.5.0",
+    "compression-webpack-plugin": "^6.1.1",
+    "image-webpack-loader": "^7.0.1",
     "sass": "^1.32.8",
     "sass-loader": "^8.0.2",
+    "uglifyjs-webpack-plugin": "^2.2.0",
     "vue-template-compiler": "^2.6.11"
   },
   "browserslist": [

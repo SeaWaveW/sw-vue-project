@@ -99,7 +99,8 @@ export default {
         background: white;
         border-radius: 6px;
         overflow: hidden;
-        box-shadow: 0px 1px 1px 2px rgba(255, 255, 255, 0.05);
+        // box-shadow: 0px 1px 1px 2px rgba(255, 255, 255, 0.05);
+        @include prefix(box-shadow,0px 1px 1px 2px rgba(255, 255, 255, 0.05));
         .sw-messageBox__header,.sw-messageBox__body,.sw-messageBox__footer{
             display: flex;
             justify-content: center;
