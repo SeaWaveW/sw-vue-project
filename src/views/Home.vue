@@ -1,5 +1,5 @@
 <template>
-<div class="" style="z-index:800">
+<div style="z-index:800">
     
     <div class="login-card" :class="[isLogin ? 'login-form' : 'register-form']">
         <div class="register">register</div>
@@ -13,8 +13,8 @@
 </template>
     
 <script>
-import { httpMap } from '@utils/httpStateCode.js'
-import confirm from '@components/confirm'
+import { httpMap } from '@utils/httpStateCode.js';
+import confirm from '@components/confirm';
 export default {
     name:"",
     components:{
