@@ -9,17 +9,17 @@
         </div>
     </div>
 
+    <sw-utton>ss</sw-utton>
+
 </div>
 </template>
     
 <script>
 import { httpMap } from '@utils/httpStateCode.js';
 import confirm from '@components/confirm';
+
 export default {
     name:"",
-    components:{
-        
-    },
     data(){return{
         isLogin:true,
     }},
