@@ -1,24 +1,32 @@
 <template>
 <div>
     <label v-for="item in this.menuData" :key="item.id">
-        <el-submenu :index="item.id +''" v-if="item.children">
+        <sw-submenu :index="item.id +''" v-if="item.children">
             <template slot="title">
-                <i class="el-icon-message"></i>
+                <i class="sw-icon-message"></i>
                 <span slot="title">{{item.name}}</span>
             </template>
             <MenuTree :menuData="item.children"></MenuTree>
-        </el-submenu>
-        <el-menu-item :index="item.id +''" v-else>
-            <!-- <i class="el-icon-message"></i> -->
+        </sw-submenu>
+        <sw-menu-item :index="item.id +''" v-else>
+            <!-- <i class="sw-icon-message"></i> -->
             <span slot="title">{{item.name}}</span>
-        </el-menu-item>
+        </sw-menu-item>
     </label>
 </div>
 </template>
 
 <script>
+import {
+    Submenu,MenuItem
+} from 'seawave-ui'
+
 export default {
     name: "MenuTree",
-    props: ['menuData']
+    props: ['menuData'],
+    components:{
+        SwSubmenu:Submenu,
+        SwMenuItem:MenuItem
+    }
 }
 </script>

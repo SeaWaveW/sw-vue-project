@@ -1,24 +1,24 @@
 <template>
 <div class="sw-tab">
     <!-- 面包屑 -->
-    <el-breadcrumb separator-class="el-icon-arrow-right">
-        <el-breadcrumb-item v-for="(item,index) in tabBreadList" :key="index" :to="{ name:item.name }" :disabled="index===0">
+    <sw-breadcrumb separator-class="sw-icon-arrow-right">
+        <sw-breadcrumb-item v-for="(item,index) in tabBreadList" :key="index" :to="{ name:item.name }" :disabled="index===0">
             {{item.meta.title}}
-        </el-breadcrumb-item>
-    </el-breadcrumb>
+        </sw-breadcrumb-item>
+    </sw-breadcrumb>
     <!-- 缓存页签 -->
-    <el-tag v-for="(item,index) in tabTagList" :key="index" 
+    <sw-tag v-for="(item,index) in tabTagList" :key="index" 
         @click="routerCut(item)"
         closable @close="deleteClick(item)"
     >
         <i class="aliveI"  :class=" item.name === tabActive ? 'success' : '' ">●</i>
         {{item.meta.title}}
-    </el-tag>
+    </sw-tag>
 
 
 
-    <el-button @click="drawer = true" type="primary" style="margin-right: 16px;float:right;">打开个人中心</el-button>
-    <el-drawer
+    <sw-button @click="drawer = true" type="primary" style="margin-right: 16px;float:right;">打开个人中心</sw-button>
+    <sw-drawer
         class="sw-userInfo"
         :visible.sync="drawer"
         :direction="'rtl'"
@@ -30,24 +30,38 @@
         </div>
         <!-- 内容区 -->
         <div class="body">
-            <el-row class="icon">
-                <el-col :span="7">
+            <sw-row class="icon">
+                <sw-col :span="7">
                     <img src="#"/>
-                </el-col>
-                <el-col :span="17" class="userName">
+                </sw-col>
+                <sw-col :span="17" class="userName">
                     用户名称
-                </el-col>
-            </el-row>
+                </sw-col>
+            </sw-row>
         </div>
-    </el-drawer>
+    </sw-drawer>
 
 </div>
 </template>
     
 <script>
 import {mapState} from 'vuex'
+
+import {
+    Breadcrumb,BreadcrumbItem,Tag,Button,Drawer,Row,Col
+} from 'seawave-ui'
+
 export default {
     name:"",
+    components:{
+        SwBreadcrumb:Breadcrumb,
+        SwBreadcrumbItem:BreadcrumbItem,
+        SwTag:Tag,
+        SwButton:Button,
+        SwDrawer:Drawer,
+        SwRow:Row,
+        SwCol:Col
+    },
     data(){
         return{
             drawer:false
@@ -71,7 +85,7 @@ export default {
 </script>
 <style scoped lang="scss">
 .sw-tab{
-    .el-tag{
+    .sw-tag{
         background-color: white;
         color: #999999;
         margin-left: 5px;
@@ -84,7 +98,7 @@ export default {
             }
         }
     }
-    .el-tag__close{
+    .sw-tag__close{
         color: #999999;
         &:hover{
             background-color: #F56C6C;
@@ -93,13 +107,13 @@ export default {
 }  
 
 .sw-userInfo{
-    .el-drawer{
+    .sw-drawer{
     }
-    .el-drawer__header{
+    .sw-drawer__header{
         padding: 0 30px;
         margin: 0 0 10px 0;
     }
-    .el-drawer__body{
+    .sw-drawer__body{
         .body{
             width: 70%;
             margin: auto;

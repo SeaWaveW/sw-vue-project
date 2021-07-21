@@ -1,20 +1,24 @@
 <template>
 <div>
-    <el-menu background-color="#304156" text-color="#fff" :router="true"
+    <sw-menu background-color="#304156" text-color="#fff" :router="true"
         :default-openeds="openList"
         @close="handleClose" ref="menus"
     >
         <menu-tree :menuData="menuList"></menu-tree>
-    </el-menu>
+    </sw-menu>
 
 </div>
 </template>
 
 <script>
 import MenuTree from './MenuTree'
+import {
+    Menu
+} from 'seawave-ui'
 export default {
     components: {
-        MenuTree
+        MenuTree,
+        SwMenu:Menu
     },
     data() {
         return {
@@ -72,7 +76,7 @@ export default {
 }
 </script>
 <style scoped lang="scss">
- .el-menu .el-submenu .el-submenu__title .el-submenu__icon-arrow {
+ .sw-menu .sw-submenu .sw-submenu__title .sw-submenu__icon-arrow {
         visibility: hidden
     }
 </style>

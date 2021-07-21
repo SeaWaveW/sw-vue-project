@@ -9,7 +9,7 @@
         </div>
     </div>
 
-    <sw-utton>ss</sw-utton>
+    <sw-button type="success">ss</sw-button>
 
 </div>
 </template>
@@ -18,8 +18,13 @@
 import { httpMap } from '@utils/httpStateCode.js';
 import confirm from '@components/confirm';
 
+import {Button} from 'seawave-ui'
+
 export default {
     name:"",
+    components:{
+        SwButton:Button
+    },
     data(){return{
         isLogin:true,
     }},

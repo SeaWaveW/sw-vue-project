@@ -1,29 +1,38 @@
 <template>
-<el-container class="sw-layout">
-  <el-aside class="sw-aside">
-      <sw-sidebar/>
-  </el-aside>
-  <el-container>
-    <el-header>
-        <sw-tab/>
-    </el-header>
-    <el-main>
+<sw-container class="sw-layout-container">
+  <sw-aside class="sw-layout-aside">
+      <layout-sidebar/>
+  </sw-aside>
+  <sw-container>
+    <sw-header>
+        <layout-tab/>
+    </sw-header>
+    <sw-main>
         <keep-alive>
             <router-view v-if="$route.meta.keepAlive"/>
         </keep-alive>
         <router-view v-if="!$route.meta.keepAlive"/>
-    </el-main>
-  </el-container>
-</el-container>
+    </sw-main>
+  </sw-container>
+</sw-container>
 </template>
 
 <script>
-import swTab from './components/tab.vue'
-import swSidebar from './components/sidebar/sidebar.vue'
+import layoutTab from './components/tab.vue'
+import layoutSidebar from './components/sidebar/sidebar.vue'
 import {mapState} from 'vuex'
+
+import {
+    Container,Aside,Header,Main
+} from 'seawave-ui'
+
 export default {
     components:{
-        swTab,swSidebar
+        layoutTab,layoutSidebar,
+        SwContainer:Container,
+        SwAside:Aside,
+        SwHeader:Header,
+        SwMain:Main
     },
     computed:{
         ...mapState(['tabList'])
@@ -47,26 +56,26 @@ html,body{
     width: 100%;
     height: 100%;
 }
-.sw-layout{
+.sw-layout-container{
     height: 100%;
     width: 100%;
     box-sizing: border-box;
 }
-::v-deep .el-aside {
+::v-deep .sw-aside {
     background-color: #D3DCE6;
     color: #333;
     text-align: center;
     width: 200px;
     height: 100%;
 }
-::v-deep .el-header{
+::v-deep .sw-header{
     background-color: #B3C0D1;
     color: #333;
     text-align: center;
     height: 60px;
     line-height: 60px;
 }
-::v-deep .el-main {
+::v-deep .sw-main {
     background-color: #E9EEF3;
     color: #333;
     text-align: center;
